@@ -122,8 +122,7 @@ vim.opt.breakindent = true
 vim.opt.undofile = false
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vim.opt.ignorecase = false
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
@@ -189,6 +188,7 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.api.nvim_set_keymap('n', '#', [[:let @/='\<'.expand('<cword>').'\>'<CR>:set hlsearch<CR>]], { noremap = true, silent = true })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
